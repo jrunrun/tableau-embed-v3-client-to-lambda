@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Embedding v3</title>
+
+
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+
+
+
+    <script>
+
+     
+
+       
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            viz = document.getElementById("tableauViz");
+
+        /*fetch('https://tqoxpv6irlwvdj74iz2gabne5a0emslq.lambda-url.us-west-2.on.aws')
+        .then(response => response.json())
+        .then(token => console.log(token)
+        viz.src = 'https://public.tableau.com/views/Superstore_embedded_800x800/Overview';
+        viz.token = token;
+        
+        )
+        .catch((error) => console.log('Error:', error));
+        */
+
+            viz.src = 'https://public.tableau.com/views/Superstore_embedded_800x800/Overview';
+           
+             
+        });
+    
+
+    
+
+        
+
+      
+
+
+    </script>
+   
+
+
+</head>
+
+<body>
+
+    <!-- <tableau-viz id="tableauViz" src='https://public.tableau.com/views/Superstore_embedded_800x800/Overview'
+        toolbar="bottom" hide-tabs>
+    </tableau-viz> -->
+
+
+    <tableau-viz id="tableauViz" 
+    toolbar="bottom" hide-tabs>
+</tableau-viz>
+
+</body>
+
+</html>
