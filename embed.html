@@ -7,7 +7,7 @@
     <title>Tableau Embedding v3</title>
 
 
-    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <script type="module" src="https://prod-useast-a.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 
 
 
@@ -16,21 +16,23 @@
      
 
        
-
+        const user = 'jmayo@tableau.com'
         document.addEventListener('DOMContentLoaded', (event) => {
             viz = document.getElementById("tableauViz");
+            
+            
+            fetch('https://tqoxpv6irlwvdj74iz2gabne5a0emslq.lambda-url.us-west-2.on.aws/?name=' + user)
+                .then(response => response.text())
+                .then((text) => {
+                    viz.token = text;
+                    console.log("viz.token: " + viz.token);
+                })
+                .catch((error) => console.log('Error:', error));
 
-        /*fetch('https://tqoxpv6irlwvdj74iz2gabne5a0emslq.lambda-url.us-west-2.on.aws')
-        .then(response => response.json())
-        .then(token => console.log(token)
-        viz.src = 'https://public.tableau.com/views/Superstore_embedded_800x800/Overview';
-        viz.token = token;
-        
-        )
-        .catch((error) => console.log('Error:', error));
-        */
+            viz.src = 'https://prod-useast-a.online.tableau.com/t/murrayslanding/views/Regional/Economy';
+            /*viz.token = token;
 
-            viz.src = 'https://public.tableau.com/views/Superstore_embedded_800x800/Overview';
+            viz.src = 'https://public.tableau.com/views/Superstore_embedded_800x800/Overview';*/
            
              
         });
@@ -50,15 +52,9 @@
 </head>
 
 <body>
-
-    <!-- <tableau-viz id="tableauViz" src='https://public.tableau.com/views/Superstore_embedded_800x800/Overview'
-        toolbar="bottom" hide-tabs>
-    </tableau-viz> -->
-
-
     <tableau-viz id="tableauViz" 
     toolbar="bottom" hide-tabs>
-</tableau-viz>
+    </tableau-viz>
 
 </body>
 
